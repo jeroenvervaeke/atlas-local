@@ -10,10 +10,13 @@ pub struct Cli {
 #[derive(Subcommand)]
 pub enum PluginSubCommands {
     /// Plugin root subcommand
-    RsExample  {
+    #[command(hide = true)]
+    RsExample {
         #[command(subcommand)]
-        command: PluginCommand
+        command: PluginCommand,
     },
+    #[command(flatten)]
+    Flat(PluginCommand),
 }
 
 #[derive(Subcommand)]
@@ -26,10 +29,11 @@ pub enum PluginCommand {
     Stdinreader,
 }
 
-impl Into<PluginCommand> for Cli{
+impl Into<PluginCommand> for Cli {
     fn into(self) -> PluginCommand {
         match self.command {
-            PluginSubCommands::RsExample { command } => command
+            PluginSubCommands::RsExample { command } => command,
+            PluginSubCommands::Flat(command) => command,
         }
     }
 }
