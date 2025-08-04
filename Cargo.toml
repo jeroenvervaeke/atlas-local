@@ -6,8 +6,10 @@ repository = "https://github.com/jeroenvervaeke/atlas-local"
 
 [dependencies]
 anyhow = "1.0.86"
+atlas-local-sdk = { path = "sdk" }
 clap = { version = "4.5.16", features = ["derive"] }
-dialoguer = "0.11.0"
+bollard = { workspace = true }
+tokio = { version = "1.47.1", features = ["full"] }
 
 # The profile that 'dist' will build with
 [profile.dist]
@@ -15,3 +17,11 @@ inherits = "release"
 lto = "thin"
 
 [dist]
+
+[workspace]
+members = [
+    "sdk",
+]
+
+[workspace.dependencies]
+bollard = "0.19.2"

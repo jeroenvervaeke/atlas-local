@@ -1,0 +1,9 @@
+[package]
+name = "atlas-local-sdk"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bollard = { workspace = true }
+maplit = "1.0.2"
+thiserror = "2.0.12"
