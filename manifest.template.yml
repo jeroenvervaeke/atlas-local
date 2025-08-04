@@ -1,10 +1,10 @@
-name: atlas-cli-rust-plugin
-description: this is an example plugin in rust
+name: atlas-local
+description: Manage local atlas deployments
 version: $VERSION
 github:
     owner: $GITHUB_REPOSITORY_OWNER
     name: $GITHUB_REPOSITORY_NAME
 binary: $BINARY
 commands: 
-    rs-example: 
-        description: Root command of the atlas cli rust plugin example
+    local: 
+        description: Manage local atlas deployments
