@@ -1,8 +1,8 @@
 [package]
-name = "atlas-cli-rust-plugin"
+name = "atlas-local"
 version = "1.0.0"
 edition = "2021"
-repository = "https://github.com/jeroenvervaeke/atlas-cli-rust-plugin"
+repository = "https://github.com/jeroenvervaeke/atlas-local"
 
 [dependencies]
 anyhow = "1.0.86"

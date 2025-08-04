@@ -11,28 +11,43 @@ pub struct Cli {
 pub enum PluginSubCommands {
     /// Plugin root subcommand
     #[command(hide = true)]
-    RsExample {
+    Local {
         #[command(subcommand)]
-        command: PluginCommand,
+        command: DeploymentCommand,
     },
     #[command(flatten)]
-    Flat(PluginCommand),
+    Flat(DeploymentCommand),
 }
 
-#[derive(Subcommand)]
-pub enum PluginCommand {
-    /// The Hello World command
-    Hello,
-    /// Prints environment variables
-    Printenv,
-    /// Reads name and prints it
-    Stdinreader,
+#[derive(Debug, Subcommand)]
+pub enum DeploymentCommand {
+    /// Connect to a local deployment.
+    Connect,
+
+    /// Fetch detailed information about all your deployments and system processes.
+    Diagnostics,
+    /// Get deployment logs.
+    Logs,
+
+    /// Return all deployments.
+    List,
+    /// Create a local deployment.
+    Setup,
+    /// Start a deployment.
+    Start,
+    /// Pause a deployment.
+    Pause,
+    /// Delete a deployment.
+    Delete,
 }
 
-impl Into<PluginCommand> for Cli {
-    fn into(self) -> PluginCommand {
+#[derive(Debug, Subcommand)]
+pub enum DiagnosticsCommand {}
+
+impl Into<DeploymentCommand> for Cli {
+    fn into(self) -> DeploymentCommand {
         match self.command {
-            PluginSubCommands::RsExample { command } => command,
+            PluginSubCommands::Local { command } => command,
             PluginSubCommands::Flat(command) => command,
         }
     }
