@@ -3,6 +3,8 @@ name = "atlas-local"
 version = "0.0.1"
 edition = "2021"
 repository = "https://github.com/jeroenvervaeke/atlas-local"
+homepage = "https://github.com/jeroenvervaeke/atlas-local"
+description = "Manage local atlas deployments"
 
 [dependencies]
 anyhow = "1.0.86"
