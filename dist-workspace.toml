@@ -23,4 +23,5 @@ install-path = "CARGO_HOME"
 install-updater = false
 # A namespace to use when publishing this package to the npm registry
 npm-scope = "@0q"
+# Publish jobs to run in CI
 publish-jobs = ["npm"]
